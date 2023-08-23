@@ -1,41 +1,55 @@
 body {
-  color: #444;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0; 
 }
 
 .voucher {
   float: left;
+  margin: 0 20px 20px 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 400px; 
+  height: 500px; 
+  border: 1px dashed #000000;
 
-  margin: -1px 0 0 -1px;
-  padding: 10px 15px;
-
-  border: 1px dashed #ddd;
 }
 
 .line1 {
   display: inline-block;
-
-  max-width: 150px;
-
-  font-size: 17px;
-  line-height: 22px;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 20px auto 10px; 
+  width: 100%; 
+  text-align: center; 
 }
 
-.line2 {
-  float: right;
-
-  margin: 2px 0 0 20px;
-
-  color: #777;
+.line2,
+.line3 {
+  margin-top: 10px;
+  color: rgb(0, 0, 0);
   font-size: 13px;
   line-height: 20px;
+  text-align: left;
+  margin-left: 20px;
 }
 
-.line3 {
-  padding-top: 10px;
-
-  font-weight: lighter;
-  font-size: 28px;
-  line-height: 34px;
-  letter-spacing: 2px;
+.qrcode {
+  width: 250px; 
+  height: 250px;
+  margin: 40px auto 100px; 
+  display: block; 
 }
+
+
+.voucher-number {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+}
+
+

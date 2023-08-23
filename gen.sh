@@ -17,8 +17,10 @@ else
 fi
 
 # HTML Settings
-line1="WiFi Voucher"
-line2="Valid for $time minutes"
+line1="Rede Voucher"
+line2="1 - Leia o QRCode abaixo para conectar-se à rede Voucher"
+line3="2 - Uma nova aba abrirá, utilize o código a seguir para acessar à internet:" 
+
 
 # Generate vouchers
 unifi_login
@@ -38,12 +40,16 @@ echo '<html><head><link rel="stylesheet" href="style.css" /></head><body>' >> vo
 
 for code in $vouchers
 do
-    line3=${code:0:5}" "${code:5:10}
-    html='<div class="voucher"><div class="line1">'$line1'</div><div class="line2">'$line2'</div><div class="line3">'$line3'</div></div>'
-    echo $html >> vouchers.html
+    line4=${code:0:5}" "${code:5:10}
+    line3_modified=$(echo "$line3 <strong>$line4</strong>") 
+
+    echo '<div class="voucher-card">' >> vouchers.html
+    echo '<div class="voucher"><div class="line1">'$line1'</div><div class="line2">'$line2'</div><div class="line3">'$line3_modified'</div><img class="qrcode" src="qrcode.jpg" alt="QR Code"></div>' >> vouchers.html
+    echo '</div>' >> vouchers.html
 done
 
 echo "</body></html>" >> vouchers.html
+
 
 # Remove tmp
 if [ -e vouchers.tmp ]; then
